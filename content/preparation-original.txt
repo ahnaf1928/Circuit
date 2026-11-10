@@ -1,0 +1,507 @@
+# 🎯 ECE-1201 CT-01: Zero থেকে 20/20 Preparation
+
+তোমার দেওয়া L-01, L-02 এবং Previous Year Question (PYQ) দেখে পুরো প্রস্তুতিটা সাজাচ্ছি। আমাদের লক্ষ্য শুধু মুখস্থ করা না—এমনভাবে বোঝা, যাতে ম্যাম প্রশ্ন একটু ঘুরিয়ে দিলেও তুমি নিজে solve করতে পারো।
+
+তুমি যেহেতু বলেছ ম্যাম Y-Y Connection পর্যন্ত পড়তে বলেছেন, তাই Delta connection-এর numerical নিয়ে আপাতত সময় নষ্ট করব না।
+
+## 1. তোমার পরীক্ষায় কী কী পড়তে হবে?
+
+দুইটা PDF মিলিয়ে এই টপিকগুলো আছে:
+
+| Topic                              | Source                         | Priority  |
+| ---------------------------------- | ------------------------------ | --------- |
+| Polyphase & Three-phase System     | L-01, pages 4–7                | Medium    |
+| Balanced Three-phase System        | L-01, page 7                   | High      |
+| Sinusoidal & Phasor Representation | L-01, page 8                   | Very High |
+| Positive & Negative Phase Sequence | L-01, pages 9–12; L-02, page 3 | Very High |
+| Phasor Summation = 0               | L-02, pages 4–5                | High      |
+| Balanced Y-Y Connection            | L-02, pages 7–12               | Very High |
+| Line & Phase Voltage Derivation    | L-02, pages 8–12               | Very High |
+| Y-Y Numerical                      | L-02 + PYQ                     | Very High |
+| Neutral Wire Contribution          | L-02, pages 13–15              | High      |
+
+PYQ থেকে সবচেয়ে গুরুত্বপূর্ণ তথ্য: আগের প্রশ্নের (a) এবং (b) অংশে ছিল line-to-line voltage, phasor representation, phase current, line current এবং total power। এগুলো Y-Y পর্যন্ত সিলেবাসের সঙ্গে সরাসরি মিলে যায়।
+
+আগের প্রশ্নের (c) অংশে Delta connection ছিল। ম্যামের নির্দেশ অনুযায়ী সেটা বাদ দিচ্ছি। তবে তার বদলে এবার কোন প্রশ্ন আসবে, সেটা নিশ্চিতভাবে বলা যায় না।
+
+## 2. Full Marks Preparation Strategy
+
+আমাদের প্রস্তুতির ৫টি ধাপ
+
+20-mark target
+
+01
+
+Basics + Definitions
+
+সহজ theory, fundamentals, important terms
+
+02
+
+Phase Sequence + Phasor
+
+abc/acb, angles, sinusoidal equations, diagram
+
+03
+
+Balanced Y-Y Derivations
+
+√3 voltage relation, 30° shift, current relation
+
+04
+
+Numerical + Neutral Wire
+
+PYQ solution, power calculation, neutral current proof
+
+05
+
+20-Mark Mock CT
+
+পরীক্ষার মতো ২০ মিনিটে solve, তারপর answer checking
+
+এখন একদম basic থেকে শুরু করি।
+
+# Step 01 — একদম Zero থেকে Basics
+
+## 1. Polyphase System কী?
+
+Exam Definition (2 marks):
+
+A polyphase system is a system in which AC sources operate at the same frequency but have different phase angles.
+
+সহজভাবে, একাধিক AC voltage একই frequency-তে কাজ করছে, কিন্তু তাদের phase angle আলাদা—এটাই Polyphase System।
+
+এর মধ্যে Three-phase System সবচেয়ে গুরুত্বপূর্ণ।
+
+## 2. Three-phase System কী?
+
+একটি Three-phase System-এ তিনটি AC voltage থাকে, যাদের মধ্যে phase difference 120°।
+
+ধরো, তিনটি phase হলো a, b, c।
+
+Basic positive-sequence three-phase phasor diagram (abc)
+
+### Why is Three-phase System important? (4 marks)
+
+ম্যামের L-01, page 6-এর চারটি point:
+
+1. Most electrical power is generated and distributed using three-phase systems.
+2. Total instantaneous power can be constant.
+3. It requires less conductor material than an equivalent single-phase system for the same power.
+4. Three-phase motors are generally self-starting.
+
+এই চারটি point পরীক্ষায় সরাসরি লিখতে পারবে।
+
+## 3. Balanced Three-phase System
+
+Definition:
+
+A balanced three-phase system has equal source voltage magnitudes separated by 120°, with equal load impedances in all three phases.
+
+অর্থাৎ:
+
+\\[ |V\_{an}|=|V\_{bn}|=|V\_{cn}| \\]
+
+\\[ Z_a=Z_b=Z_c \\]
+
+এখানে \\(Z\\) = Impedance, যার unit Ω (ohm)।
+
+# Step 02 — Phase Sequence
+
+এটা খুবই গুরুত্বপূর্ণ। তোমার দুইটা lecture-এই আছে।
+
+## 1. Phase Sequence কী?
+
+Exam Definition:
+
+Phase sequence is the time order in which the phase voltages reach their maximum values.
+
+দুই ধরনের Phase Sequence আছে:
+
+| Positive Sequence | Negative Sequence |
+| ----------------- | ----------------- |
+| abc / RYB         | acb / RBY         |
+| a → b → c         | a → c → b         |
+| b lags a by 120°  | b leads a by 120° |
+
+### Positive (abc) Phasor
+
+যদি phase voltage 230 V হয়:
+
+\\[ V\_{an}=230\angle0^\circ \\]
+
+\\[ V\_{bn}=230\angle-120^\circ \\]
+
+\\[ V\_{cn}=230\angle+120^\circ \\]
+
+### Negative (acb) Phasor
+
+\\[ V\_{an}=230\angle0^\circ \\]
+
+\\[ V\_{bn}=230\angle+120^\circ \\]
+
+\\[ V\_{cn}=230\angle-120^\circ \\]
+
+মনে রাখবে: Positive-এ b হলো −120°, Negative-এ b হলো +120°, যখন a-এর angle 0° ধরা হয়।
+
+## 2. Sinusoidal Expression
+
+L-01, page 8 অনুযায়ী, positive sequence-এর জন্য:
+
+\\[ v\_{an}=V_m\sin(\omega t) \\]
+
+\\[ v\_{bn}=V_m\sin(\omega t-120^\circ) \\]
+
+\\[ v\_{cn}=V_m\sin(\omega t+120^\circ) \\]
+
+এখানে:
+
+- \\(V_m\\) = Maximum/peak voltage
+- \\(\omega=2\pi f\\) = Angular frequency
+- \\(f\\) = Frequency
+
+50 Hz হলে:
+
+\\[ \omega=2\pi(50)=100\pi\\;\text{rad/s} \\]
+
+RMS এবং Peak voltage-এর সম্পর্ক:
+
+\\[ \boxed{V\_{rms}=\frac{V_m}{\sqrt3}\\;\text{নয়}} \\]
+
+সঠিক সম্পর্ক:
+
+\\[ \boxed{V\_{rms}=\frac{V_m}{\sqrt2}} \\]
+
+এখানে অনেকেই √2 আর √3 গুলিয়ে ফেলে। √2 ব্যবহার করবে peak-to-RMS conversion-এর জন্য; √3 ব্যবহার করবে balanced Y-এর line-to-phase voltage conversion-এর জন্য।
+
+## 3. Phase Sequence বের করার নিয়ম
+
+L-01-এর page 10–12 অনুযায়ী:
+
+1. Voltage expressions-গুলোকে phasor form-এ convert করবে।
+2. Phasor diagram-এ একটি fixed reference point ধরবে।
+3. Phasors counterclockwise rotate করলে কোনটি আগে fixed point অতিক্রম করে তা দেখবে।
+
+Special note: L-02 page 3-এ \\(-200\cos(\omega t)\\)-এর sine conversion-এ একটি sign inconsistency আছে। সঠিক identity হলো:
+
+\\[ -200\cos(\omega t)=200\sin(\omega t-90^\circ) \\]
+
+তাই ওই example-এর conversion অন্ধভাবে মুখস্থ করবে না।
+
+# Step 03 — Balanced Y-Y Connection
+
+MOST IMPORTANT NUMERICAL TOPIC
+
+এবার আসি সেই অংশে যেটা PYQ-তে সরাসরি আছে।
+
+## 1. Y-Y Connection মানে কী?
+
+Y-Y means both the three-phase source and the three-phase load are star (Y) connected.
+
+এতে দুটি গুরুত্বপূর্ণ relation:
+
+Line Voltage
+
+\\(V_L=\sqrt3 V_P\\)
+
+Line Current
+
+\\(I_L=I_P\\)
+
+For positive sequence, line voltage leads its corresponding phase voltage by 30°.
+
+## 2. Line Voltage আর Phase Voltage-এর পার্থক্য
+
+| Phase Voltage                  | Line Voltage                  |
+| ------------------------------ | ----------------------------- |
+| একটি line এবং neutral-এর মধ্যে | দুটি line-এর মধ্যে            |
+| \\(V\_{an},V\_{bn},V\_{cn}\\)  | \\(V\_{ab},V\_{bc},V\_{ca}\\) |
+| Example: 230 V                 | Example: 398.37 V             |
+
+## 3. Derivation: Prove \\(V_L=\sqrt3 V_P\\)
+
+এটা L-02, pages 8–10-এর গুরুত্বপূর্ণ derivation।
+
+Given: Balanced Y-Y system with positive abc sequence.
+
+Applying KVL:
+
+\\[ -V\_{an}+V\_{ab}+V\_{bn}=0 \\]
+
+Therefore,
+
+\\[ V\_{ab}=V\_{an}-V\_{bn} \\]
+
+\\[ V\_{ab}=V\_{an}+V\_{nb} \\]
+
+The angle between \\(V\_{an}\\) and \\(V\_{nb}\\) is 60°.
+
+Using vector addition:
+
+\\[ V_L=\sqrt{V_P^2+V_P^2+2V_P^2\cos60^\circ} \\]
+
+Since \\(\cos60^\circ=\frac12\\),
+
+\\[ V_L=\sqrt{V_P^2+V_P^2+V_P^2} \\]
+
+\\[ \boxed{V_L=\sqrt3 V_P} \\]
+
+For positive sequence, the resulting line-voltage phasor leads the corresponding phase-voltage phasor by 30°.
+
+Final conclusion (exam-এ অবশ্যই লিখবে):
+
+In a balanced Y-Y system, the magnitude of line voltage is √3 times the phase voltage, and the line voltage leads its corresponding phase voltage by 30° for positive sequence.
+
+For negative sequence, the line voltage lags by 30°.&#x20;
+
+L-02_ECE-1201.pdf
+
+
+
+# Step 04 — PYQ Numerical: Complete Solution
+
+এবার তোমার দেওয়া আগের প্রশ্নের Y-connected অংশ solve করি।
+
+Given:
+
+\\[ V\_{ph}=230\\;V \\]
+
+\\[ Z\_{ph}=20\angle30^\circ\\;\Omega \\]
+
+Frequency = 50 Hz
+
+Assume positive (abc) sequence.
+
+## (a) Determine the line-to-line voltages
+
+প্রথমে:
+
+\\[ V_L=\sqrt3\times230 \\]
+
+\\[ V_L=398.37\\;V \\]
+
+তাহলে:
+
+\\[ \boxed{V\_{ab}=398.37\angle30^\circ\\;V} \\]
+
+\\[ \boxed{V\_{bc}=398.37\angle-90^\circ\\;V} \\]
+
+\\[ \boxed{V\_{ca}=398.37\angle150^\circ\\;V} \\]
+
+এখানে \\(150^\circ\\) এবং \\(-210^\circ\\) একই phasor direction নির্দেশ করে।
+
+Phasor diagram আঁকার সময় phase voltage-এর angle 0°, −120°, +120° এবং line voltage-এর angle +30°, −90°, +150° দেখাবে।
+
+## (b-i) Calculate the phase currents
+
+Ohm's law:
+
+\\[ I\_{ph}=\frac{V\_{ph}}{Z\_{ph}} \\]
+
+প্রথম phase:
+
+\\[ I_a=\frac{230\angle0^\circ}{20\angle30^\circ} \\]
+
+Magnitude divide এবং angle subtract করবে।
+
+\\[ \boxed{I_a=11.5\angle-30^\circ\\;A} \\]
+
+একইভাবে:
+
+\\[ I_b=\frac{230\angle-120^\circ}{20\angle30^\circ} \\]
+
+\\[ \boxed{I_b=11.5\angle-150^\circ\\;A} \\]
+
+\\[ I_c=\frac{230\angle120^\circ}{20\angle30^\circ} \\]
+
+\\[ \boxed{I_c=11.5\angle90^\circ\\;A} \\]
+
+Shortcut: Impedance angle +30° হওয়ায় প্রতিটি current নিজ নিজ phase voltage থেকে 30° lag করছে।
+
+## (b-ii) Determine the line currents
+
+For Y connection:
+
+\\[ I_L=I\_{ph} \\]
+
+সুতরাং:
+
+\\[ \boxed{I_A=11.5\angle-30^\circ A} \\]
+
+\\[ \boxed{I_B=11.5\angle-150^\circ A} \\]
+
+\\[ \boxed{I_C=11.5\angle90^\circ A} \\]
+
+এখানে √3 দিয়ে current multiply করবে না।
+
+## (b-iii) Find the total consumed power
+
+এই formula-টি PYQ-এর power অংশ solve করার জন্য standard balanced three-phase power relation; তোমার uploaded slides-এ power derivation আলাদাভাবে দেখানো হয়নি।
+
+\\[ P=3V\_{ph}I\_{ph}\cos\phi \\]
+
+Here,
+
+\\[ \phi=30^\circ \\]
+
+\\[ P=3\times230\times11.5\times\cos30^\circ \\]
+
+\\[ P=3\times230\times11.5\times0.866 \\]
+
+\\[ \boxed{P\approx6872\\;W=6.87\\;kW} \\]
+
+Solved PYQ — Final Answers
+
+| Quantity                | Answer        |
+| ----------------------- | ------------- |
+| Line voltage            | 398.37 V      |
+| Phase current magnitude | 11.5 A        |
+| Line current magnitude  | 11.5 A        |
+| Power factor            | 0.866 lagging |
+| Total real power        | 6.87 kW       |
+
+এই numerical-এর (a) এবং (b) অংশ আগের CT-এর 12 marks বহন করেছিল। এই pattern-এর প্রশ্ন দ্রুত solve করতে পারা তোমার preparation-এর বড় অংশ।
+
+# Step 05 — আরও দুটি গুরুত্বপূর্ণ Proof
+
+## 1. Prove that phasor summation of balanced three-phase voltages is zero
+
+For positive sequence:
+
+\\[ V\_{an}=V_P\angle0^\circ \\]
+
+\\[ V\_{bn}=V_P\angle-120^\circ \\]
+
+\\[ V\_{cn}=V_P\angle120^\circ \\]
+
+In rectangular form:
+
+\\[ V\_{an}=V_P \\]
+
+\\[ V\_{bn}=-\frac{V_P}{2}-j\frac{\sqrt3V_P}{2} \\]
+
+\\[ V\_{cn}=-\frac{V_P}{2}+j\frac{\sqrt3V_P}{2} \\]
+
+Adding:
+
+\\[ V\_{an}+V\_{bn}+V\_{cn} =V_P-\frac{V_P}{2}-\frac{V_P}{2} \\]
+
+The imaginary components also cancel.
+
+\\[ \boxed{V\_{an}+V\_{bn}+V\_{cn}=0} \\]
+
+Similarly, for balanced phase currents:
+
+\\[ \boxed{I_a+I_b+I_c=0} \\]
+
+এই proof-টা L-02-এর pages 4–5-এর একই conclusion প্রতিষ্ঠা করে।&#x20;
+
+L-02_ECE-1201.pdf
+
+
+
+## 2. Contribution of Neutral Wire in Y-Y System
+
+ম্যামের L-02-এর pages 13–15 থেকে এটি পড়বে।
+
+For a balanced Y-Y system, considering equal per-phase total impedance \\(Z_Y\\):
+
+\\[ V\_{an}=I_aZ_Y+V\_{Nn} \\]
+
+\\[ V\_{bn}=I_bZ_Y+V\_{Nn} \\]
+
+\\[ V\_{cn}=I_cZ_Y+V\_{Nn} \\]
+
+Adding all three equations:
+
+\\[ V\_{an}+V\_{bn}+V\_{cn} =(I_a+I_b+I_c)Z_Y+3V\_{Nn} \\]
+
+For a balanced system:
+
+\\[ 0=0+3V\_{Nn} \\]
+
+Therefore,
+
+\\[ \boxed{V\_{Nn}=0} \\]
+
+And,
+
+\\[ \boxed{I_n=I_a+I_b+I_c=0} \\]
+
+Important conclusion: In an ideal balanced Y-Y system, the neutral current is zero. However, the neutral wire is useful in practical systems because loads may become unbalanced.&#x20;
+
+L-02_ECE-1201.pdf
+
+
+
+# Step 06 — Exam Hall Formula Sheet
+
+এই formula-গুলো না দেখে লিখতে পারলেই numerical preparation অনেক শক্ত হবে।
+
+| Formula                         | Meaning                  |
+| ------------------------------- | ------------------------ |
+| \\(V_L=\sqrt3V_P\\)             | Y connection             |
+| \\(I_L=I_P\\)                   | Y connection             |
+| \\(I_P=V_P/Z_P\\)               | Phase current            |
+| \\(P=3V_PI_P\cos\phi\\)         | Total real power         |
+| \\(P=\sqrt3V_LI_L\cos\phi\\)    | Equivalent power formula |
+| \\(V\_{ab}=V\_{an}-V\_{bn}\\)   | Line voltage             |
+| \\(V\_{bc}=V\_{bn}-V\_{cn}\\)   | Line voltage             |
+| \\(V\_{ca}=V\_{cn}-V\_{an}\\)   | Line voltage             |
+| \\(V\_{an}+V\_{bn}+V\_{cn}=0\\) | Balanced voltage sum     |
+| \\(I_a+I_b+I_c=0\\)             | Balanced current sum     |
+
+যে ৪টি ভুল একদম করবে না: RMS conversion-এ √3 ব্যবহার, Y current-কে √3 দিয়ে গুণ, positive sequence-এ 30° lag লেখা, এবং power calculation-এ \\(\cos\phi\\) বাদ দেওয়া।
+
+# Step 07 — তোমার 20-Mark Mock CT
+
+## ECE-1201 Practice Test 01
+
+L-01 + L-02 • Y-Y Syllabus
+
+# 20
+
+Marks
+
+Time: 20 minutes
+
+Question 1
+
+4 marks
+
+Define a balanced three-phase system. State two advantages of a three-phase system.Definition + two advantages
+
+Question 2
+
+4 marks
+
+Define phase sequence. Write the phasor expressions for both positive and negative sequence when the phase voltage is 100 V.abc and acb expressions
+
+Question 3
+
+4 marks
+
+Derive the relation between line voltage and phase voltage for a balanced Y-Y system of positive sequence.Use KVL and vector addition
+
+Question 4
+
+6 marks
+
+A balanced Y-Y system has phase voltage 200 V and load impedance 10∠30° Ω per phase. Calculate all three phase currents, line currents and total real power. Assume abc sequence.Full numerical with angles
+
+Question 5
+
+2 marks
+
+What is the neutral current in an ideal balanced Y-Y system? Explain briefly.Show current summation
+
+এই mock-টি আমি তোমার দুই lecture-এর topic coverage ধরে তৈরি করেছি, actual question prediction হিসেবে নয়।
+
+## এখন কী করবে?
+
+তুমি প্রথমে Step 01 ও Step 02 ভালোভাবে বোঝো। তারপর উপরের Mock CT-র Question 1 এবং Question 2 নিজের মতো ইংরেজিতে লিখে আমাকে পাঠাও।
+
+আমি তোমার উত্তর ম্যামের CT-এর মতো marks দিয়ে check করব, কোথায় marks কাটতে পারে দেখাব, তারপর ভুলগুলো ঠিক করে দেব। এরপর derivation এবং numerical timed practice করব।
+
+Target 20/20 — কিন্তু সেটা অর্জনের জন্য আমাদের লক্ষ্য হবে প্রতিটি formula বোঝা, phasor diagram আঁকতে পারা এবং ২০ মিনিটের মধ্যে ভুল ছাড়া solve করা।
